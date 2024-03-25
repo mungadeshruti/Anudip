@@ -1,23 +1,26 @@
-package comstring.demo;
-/*
- * when to use"==", equals() and hashcode () on strings
- * ==" operator, equals() method and hash
- */
+package com.string;
+
 public class StringComparison 
 {
-
-	public static void main(String[] args)
+	public static void main(String[] args) 
 	{
-		String s1 = "0-42L";
-		
-		String s2 = "0-43-";
-		
-		System.out.println(s1 == s2); //will return false as s1 and s2 are referring to two different
-		
-		System.out.println(s1.equals(s2)); //false
-		
-		System.out.println(s1.hashCode() ==s2.hashCode()); //true
-		
-	}
+		// Given string
+        String originalString = "Hello ASM";
 
+        // Specified character sequence to compare
+        String sequenceToCompare = "Hey";
+
+        // Compare the original string with the specified sequence
+        boolean isEqual = originalString.equals(sequenceToCompare);
+
+        // Print the result
+        if (isEqual)
+        {
+            System.out.println("The original string is equal to the specified sequence.");
+        }
+        else 
+        {
+            System.out.println("The original string is not equal to the specified sequence.");
+        }
+	}
 }
