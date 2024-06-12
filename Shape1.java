@@ -1,67 +1,117 @@
-package inheritancedemo;
-import java.lang.Math;
-public class Shape1 {
+/**Write a Java program to create a base class Shape with methods draw() and calculateArea(). 
+ * Create three subclasses: Circle, Square, and Triangle. Override the draw() method in each 
+ * subclass to draw the respective shape, and override the calculateArea() method to calculate and return the area of each shape.**/
 
-	void draw() {
-	}
-    double calculateArea() {
-		return 0;
-	}
+package com.inheritance;
+
+//Shape abstract class represents a generic shape
+public abstract class Shape1
+{
+	// Abstract method to draw a shape
+    public abstract void draw();
+
+    // Abstract method to calculate the area of a shape
+    public abstract double calculateArea();
 }
 
-// Subclass Circle
-class Circle extends Shape {
-    double radius;
+// Circle class extends Shape and represents a circle shape
+class Circle extends Shape1 {
+    private double radius;
 
-    Circle(double radius) {
-    	
+    // Constructor to initialize the radius of the circle
+    public Circle(double radius) {
         this.radius = radius;
     }
 
-    @Override
-    void draw() {
+    // Overridden method to draw a circle
+   
+    public void draw() {
         System.out.println("Drawing Circle");
     }
 
-    @Override
-    double calculateArea() {
+    // Overridden method to calculate the area of a circle
+   
+    public double calculateArea() {
         return Math.PI * radius * radius;
     }
 }
 
-// Subclass Cylinder
-class Cylinder extends Circle {
-    double height;
+// Square class extends Shape and represents a square shape
+class Square extends Shape1 {
+    private double side;
 
-    Cylinder(double radius, double height) {
-        super(radius);
+    // Constructor to initialize the side of the square
+    public Square(double side) {
+        this.side = side;
+    }
+
+    // Overridden method to draw a square
+   
+    public void draw() {
+        System.out.println("Drawing Square");
+    }
+
+    // Overridden method to calculate the area of a square
+    
+    public double calculateArea() {
+        return side * side;
+    }
+}
+
+// Triangle class extends Shape and represents a triangle shape
+class Triangle extends Shape1 {
+    private double base;
+    private double height;
+
+    // Constructor to initialize the base and height of the triangle
+    public Triangle(double base, double height) {
+        this.base = base;
         this.height = height;
     }
 
-    @Override
-    void draw() {
-        System.out.println("Drawing Cylinder");
+    // Overridden method to draw a triangle
+    
+    public void draw() {
+        System.out.println("Drawing Triangle");
     }
 
-    @Override
-    double calculateArea() {
-        // Total surface area of a cylinder = 2πr(r + h) + 2πr^2
-        return 2 * Math.PI * radius * (radius + height) + 2 * super.calculateArea();
+    // Overridden method to calculate the area of a triangle
+    
+    public double calculateArea() {
+        return 0.5 * base * height;
     }
 }
 
-public class Main {
+// Main class to test different shapes and their areas
+public class Shape1 {
     public static void main(String[] args) {
-        // Creating instances of Circle and Cylinder
         Circle circle = new Circle(5);
-        Cylinder cylinder = new Cylinder(3, 7);
+        Square square = new Square(4);
+        Triangle triangle = new Triangle(3, 6);
 
-        // Drawing each shape
         circle.draw();
-        cylinder.draw();
-
-        // Calculating and printing area of each shape
         System.out.println("Area of Circle: " + circle.calculateArea());
-        System.out.println("Surface area of Cylinder: " + cylinder.calculateArea());
+
+        square.draw();
+        System.out.println("Area of Square: " + square.calculateArea());
+
+        triangle.draw();
+        System.out.println("Area of Triangle: " + triangle.calculateArea());
     }
 }
+
+
+/**DRY RUN  
+ * 
+ * Drawing Circle
+Area of Circle: 78.53981633974483
+Drawing Square
+Area of Square: 16.0
+Drawing Triangle
+Area of Triangle: 9.0
+
+ * 
+ * 
+ * **/
+
+

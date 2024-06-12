@@ -1,26 +1,48 @@
-package com.string;
+/**Write a Java program to compare a given string to the specified character sequence.**/
+
+package com.lab21;
+
+import java.util.Scanner;
 
 public class StringContainSequence 
 {
-	public static void main(String[] args)
-	{
-		//Given string
-		String originalString = "Hello Anudip";
-		
-		// Specified sequence of characters to check
-		String sequenceToCheck = "Anudip";
-		
-	    // Test if the original string contains the specified sequence
-		boolean containSequence = originalString.contains(sequenceToCheck);
-		
-		//print the result
-		if (containSequence)
-		{
-			System.out.println("The original string contains the specified sequence");		
-		}
-		else
-		{
-			System.out.println("The oringinal string does not contain the specified sequence");
-		}
+	 public static void main(String[] args) 
+	    {
+	        Scanner scanner = new Scanner(System.in);
+
+	        // Prompt the user to enter the string
+	        System.out.print("Enter the string: ");     
+	        String inputString = scanner.nextLine();
+
+	        // Prompt the user to enter the sequence of characters
+	        System.out.print("Enter the sequence of characters : ");   
+	        String sequence = scanner.nextLine();
+
+	        // Check if the string contains the specified sequence
+	        boolean containsSequence = inputString.contains(sequence);
+
+	        // Print the result
+	        if (containsSequence) 
+	        {
+	            System.out.println("The string contains sequence of characters.");
+	        } 
+	        else 
+	        {
+	            System.out.println("The string does not contain sequence of characters.");
+	        }
+	    }
 	}
-}
+
+	/*
+	 * 
+	 * DRY RUN
+	 
+	Input:
+	Enter the string: Hello
+	Enter the sequence of characters : ell
+
+	Output:
+	The string contains sequence of characters.
+	*/
+
+
